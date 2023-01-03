@@ -7,8 +7,9 @@ Install : Node, npm, npx
 run `npx create-react-app my-app`
 
 
-## Basic project
+## React basics
 
+### Basic component
 ```
 # index.js
 
@@ -40,3 +41,33 @@ export function App() {
 - Format document With.. (Crtl + Maj + P) -> Configure default formater 
 - Preferences: Open User Settings (JSON) -> Add `"editor.formatOnSave": true,` to settings.json
 - add `Auto Rename Tag`
+
+### Props
+
+Props cannot be changed
+
+
+```
+# Grettings.jsx
+
+export function Greetings(props) {
+  console.log(props);
+  return (
+    <div>
+      Hi {props.firstName} {props.lastName} you are {props.age + 10}
+    </div>
+  );
+}
+```
+
+```
+# In another component
+
+import { Greetings } from "./Greetings";
+...
+<Greetings
+  firstName={"Rachel"}
+  lastName={"Green"}
+  age={30}
+>
+```
