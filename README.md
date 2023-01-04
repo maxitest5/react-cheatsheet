@@ -44,7 +44,8 @@ export function App() {
 
 ### Props
 
-Props cannot be changed
+Props cannot be changed inside the component where they are used
+Props can be changed where the component is initilized -> rerender of the component
 
 
 ```
@@ -71,3 +72,42 @@ import { Greetings } from "./Greetings";
   age={30}
 >
 ```
+<br />
+
+### States
+
+When variables inside a component changes the component is not rerendered -> Use states to change value in a component
+Each component has its own state
+
+Exemple : `const[age,setAge] = useState(30)`
+
+```
+# AgeCounter.jsx
+
+import { useState } from "react";
+import { AgeDisplay } from "./AgeDisplay";
+
+export function AgeCounter(props) {
+  const [age, setAge] = useState(30);
+
+  function increaseAge() {
+    setAge(age + 1);
+  }
+  console.log("rerender !");
+  return (
+    <div>
+      <button onClick={increaseAge}>Increase age</button>
+      <AgeDisplay age={age} />
+    </div>
+  );
+}
+```
+
+```
+# AgeDisplay.jsx
+
+export function AgeDisplay(props) {
+  return <p>You are {props.age} years old</p>;
+}
+```
+
