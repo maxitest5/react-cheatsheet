@@ -78,6 +78,7 @@ import { Greetings } from "./Greetings";
 
 When variables inside a component changes the component is not rerendered -> Use states to change value in a component
 Each component has its own state
+State take some to be changed, to use the last value of a state in the component body. Do not use the setValue in the component body.
 
 Exemple : `const[age,setAge] = useState(30)`
 
@@ -110,4 +111,78 @@ export function AgeDisplay(props) {
   return <p>You are {props.age} years old</p>;
 }
 ```
+
+
+### Styling
+
+1- Inline CSS (JSS)
+
+`<div style={{backgroundColor:"red",height:100,}}></div>`
+
+2- CSS file
+Risk of confilt
+
+```
+# src/global.css
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+...
+```
+```
+# src/components/Car/style.module.css
+
+.box {
+  height: 200px;
+  width: 200px;
+}
+```
+```
+# src/App.jsx
+
+import { Car } from "./components/Car/Car";
+import "./global.css";
+
+export function App() {
+  return (
+    <>
+      <div>
+        <Car /> -> CSS conflict
+      </div>
+    </>
+  );
+}
+```
+```
+# src/components/Car/Car.jsx
+
+import "./style.css"
+export function Car() {
+  return <p className="box">Je suis une voiture</p>;
+}
+```
+
+3- CSS modules
+Safer than CSS file
+
+```
+# src/components/Greetings/Greetings.jsx
+
+import s from "./style.module.css";
+export function Greetings() {
+  return <p className={`${s.box} box`}>Salutation</p>;
+}
+```
+
+```
+# src/components/Greetings/style.module.css
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+```
+
 
