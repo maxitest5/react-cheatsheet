@@ -115,11 +115,11 @@ export function AgeDisplay(props) {
 
 ### Styling
 
-1- Inline CSS (JSS)
+1. Inline CSS (JSS)
 
 `<div style={{backgroundColor:"red",height:100,}}></div>`
 
-2- CSS file
+2. CSS file<br>
 Risk of confilt
 
 ```
@@ -164,7 +164,7 @@ export function Car() {
 }
 ```
 
-3- CSS modules
+3. CSS modules<br>
 Safer than CSS file
 
 ```
