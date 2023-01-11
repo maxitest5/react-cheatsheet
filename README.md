@@ -241,7 +241,7 @@ TVShowAPI.fetchPopulars();
 
 Can be used only:
 - At the first rendering of the component
-- When some variable changes
+- When specific variable changes, these variables are defined in an array.
 - When the component is destroyed via the `return`
 
 ```
@@ -253,5 +253,9 @@ export function MyComponent() {
     return () => {     -->  return is optional
       // Do some other thing
     }
-  }, [])
+  }, [variables, listened])     -->  the array of the variables listened to
 ```
+
+If the array is empty: useEffect is only executed once 
+If there is no array: useEffect is executed at each render
+
