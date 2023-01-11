@@ -76,9 +76,11 @@ import { Greetings } from "./Greetings";
 
 ### States
 
-When variables inside a component changes the component is not rerendered -> Use states to change value in a component
+When variables inside a component changes the component is not rerendered -> Use states to change a value in a component
+When a state changes the component is rerendered
 Each component has its own state
-State take some to be changed, to use the last value of a state in the component body. Do not use the setValue in the component body.
+State take some time to be changed, to use the last value of a state in the component body.
+Do not use the setValue in the component body it will create infinite loop.
 
 Exemple : `const[age,setAge] = useState(30)`
 
@@ -206,4 +208,50 @@ export function MenuList({ difficulty, onItemClick }) {
   );
 }
 ```
+### Call APIs
 
+`fetch` function can be used for quering APIs
+
+A cleaner option is to use the library `axios`
+`npm i axios`
+
+```
+# src/api/tv-show.js
+
+import axios from "axios";
+import { BASE_URL, API_KEY_PARAM } from "../config";
+
+export class TVShowAPI {
+  static async fetchPopulars() {
+    const response = await axios.get(`${BASE_URL}tv/popular${API_KEY_PARAM}`);
+    console.log(response.data.results);
+    return response.data.results;
+  }
+}
+```
+```
+# src/App.jsx
+
+import { TVShowAPI } from "./api/tv-show";
+...
+TVShowAPI.fetchPopulars();
+```
+
+### useEffect (hook)
+
+Can be used only:
+- At the first rendering of the component
+- When some variable changes
+- When the component is destroyed via the `return`
+
+```
+import { useEffect } from "react"
+
+export function MyComponent() {
+  useEffect(() => {
+    // Do something
+    return () => {     -->  return is optional
+      // Do some other thing
+    }
+  }, [])
+```
