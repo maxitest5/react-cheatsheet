@@ -240,7 +240,7 @@ TVShowAPI.fetchPopulars();
 ### useEffect (hook)
 
 Can be used only:
-- At the first rendering of the component
+- At the end of the first rendering of the component
 - When specific variable changes, these variables are defined in an array.
 - When the component is destroyed via the `return`
 
