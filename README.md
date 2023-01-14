@@ -342,3 +342,24 @@ const { addExpense } = expenseSlice.actions;
 export { addExpense };
 ```
 
+Change Slice:
+
+```
+# src/components/ExpenseInput/ExpenseInput.jsx
+
+...
+import { addExpense } from "store/expense/expense-slice";
+import s from "./style.module.css";
+
+export function ExpenseInput(props) {
+  const dispatch = useDispatch();
+
+  function submit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const price = formData.get("price");
+    dispatch(addExpense({ name, price }));
+  }
+...
+```
