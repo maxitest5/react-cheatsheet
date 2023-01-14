@@ -259,3 +259,10 @@ export function MyComponent() {
 If the array is empty: useEffect is only executed once 
 If there is no array: useEffect is executed at each render
 
+### Boostrap
+
+Include via CDN in index.html https://getbootstrap.com/
+
+Icons:
+
+`npm i react-bootstrap-icons`
