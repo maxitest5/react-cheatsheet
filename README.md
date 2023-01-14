@@ -42,6 +42,20 @@ export function App() {
 - Preferences: Open User Settings (JSON) -> Add `"editor.formatOnSave": true,` to settings.json
 - add `Auto Rename Tag`
 
+### Configuration file recommended
+
+`jsconfig.json`
+```
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "checkJs": false,
+    "jsx": "react"
+  }
+}
+```
+
+
 ### Props
 
 Props cannot be changed inside the component where they are used
