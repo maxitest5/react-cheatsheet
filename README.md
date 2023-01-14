@@ -298,7 +298,7 @@ import { expenseSlice } from "./expense/expense-slice";
 
 const store = configureStore({
   reducer: {
-    EXPENSE: expenseSlice.reducer,  ---> Exemple of key referencing a slice
+    EXPENSE: expenseSlice.reducer,  ---> Example of key referencing a slice
   },
 });
 
@@ -331,7 +331,7 @@ export const expenseSlice = createSlice({
     expenseList: [{ name: "Ordinateur", price: 300 }],
   },
   reducers: {
-    addExpense: (currentSlice, action) => {
+    addExpense: (currentSlice, action) => {             ---> Example of action
       currentSlice.expenseList.push(action.payload);
     },
   },
