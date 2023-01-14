@@ -280,3 +280,65 @@ Include via CDN in index.html https://getbootstrap.com/
 Icons:
 
 `npm i react-bootstrap-icons`
+
+## Redux
+
+`npm i @reduxjs/toolkit`
+`npm i react-redux`
+
+Recommanded add `Redux DevTools` to Chrome
+
+Add store
+
+```
+# src/store/index.js
+
+import { configureStore } from "@reduxjs/toolkit";
+import { expenseSlice } from "./expense/expense-slice";
+
+const store = configureStore({
+  reducer: {
+    EXPENSE: expenseSlice.reducer,  ---> Exemple of key referencing a slice
+  },
+});
+
+export { store };
+```
+
+```
+# src/index.js
+
+...
+import { Provider } from "react-redux";
+import { store } from "store";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
+### Slice (group of data)
+
+```
+# src/store/expense/expense-slice.js
+
+import { createSlice } from "@reduxjs/toolkit";
+
+export const expenseSlice = createSlice({
+  name: "expenseSlice",
+  initialState: {
+    expenseList: [{ name: "Ordinateur", price: 300 }],
+  },
+  reducers: {
+    addExpense: (currentSlice, action) => {
+      currentSlice.expenseList.push(action.payload);
+    },
+  },
+});
+
+const { addExpense } = expenseSlice.actions;
+
+export { addExpense };
+```
+
