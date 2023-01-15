@@ -399,3 +399,39 @@ root.render(
   </StrictMode>
 );
 ```
+
+Nested routes to for componenents sharing elements:
+
+```
+index.js
+
+...
+root.render(
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<NoteBrowse />} />
+            <Route path="/note/:id" element={<NoteRead />} />
+            <Route path="/note/new" element={<NoteCreate />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
+);
+```
+
+```
+# App.jsx
+
+import { Outlet } from "react-router-dom";
+
+export function App() {
+  return <div>Header content
+    <Outlet />
+  </div>;
+}
+```
