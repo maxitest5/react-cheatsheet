@@ -343,7 +343,7 @@ const { addExpense } = expenseSlice.actions;
 export { addExpense };
 ```
 
-Change Slice:
+Update Slice: `useDispatch()`
 
 ```
 # src/containers/ExpenseInput/ExpenseInput.jsx      ---> components connected to the store are generaly located in src/containers
@@ -365,7 +365,7 @@ export function ExpenseInput(props) {
 ...
 ```
 
-Read Slice:
+Read Slice: `useSelector()`
 
 ```
 import { useSelector } from "react-redux";
