@@ -374,3 +374,28 @@ export function App() {
   const expenseList = useSelector((store) => store.EXPENSE.expenseList);
 ```
 
+### Router
+
+```
+# src\index.js
+
+...
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/note/:id" element={<NoteRead />} />
+          <Route path="/note/new" element={<NoteCreate />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
+);
+```
