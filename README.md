@@ -320,6 +320,7 @@ root.render(
 ```
 ### Slice (group of data)
 
+Setup Slice
 ```
 # src/store/expense/expense-slice.js
 
@@ -345,8 +346,8 @@ export { addExpense };
 Change Slice:
 
 ```
-# src/components/ExpenseInput/ExpenseInput.jsx
-
+# src/containers/ExpenseInput/ExpenseInput.jsx      ---> components connected to the store are generaly located in src/containers
+                                                          usually a specific component used once or twice in all the app
 ...
 import { addExpense } from "store/expense/expense-slice";
 import s from "./style.module.css";
@@ -363,3 +364,13 @@ export function ExpenseInput(props) {
   }
 ...
 ```
+
+Read Slice:
+
+```
+import { useSelector } from "react-redux";
+
+export function App() {
+  const expenseList = useSelector((store) => store.EXPENSE.expenseList);
+```
+
