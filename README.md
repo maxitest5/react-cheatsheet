@@ -435,3 +435,30 @@ export function App() {
   </div>;
 }
 ```
+### Navigate
+
+```
+# src\components\Header\Header.jsx
+
+import { useNavigate } from 'react-router-dom'
+
+export function Header(props) {
+  const navigate = useNavigate()
+
+  return (
+  <div className={`row ${s.container}`}>
+    <ButtonPrimary onClick={() => navigate("/note/new")}>
+...
+```
+
+```
+# src\components\ButtonPrimary\ButtonPrimary.jsx
+
+export function ButtonPrimary({ children, onClick }) {
+  return (
+    <button type='button' className='btn btn-primary' onClick={onClick}>
+      {children}
+    </button>
+  )
+}
+```
