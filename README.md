@@ -39,7 +39,7 @@ export function App() {
 
 - add `Prettier - Code formatter`
 - Format document With.. (Crtl + Maj + P) -> Configure default formater 
-- Preferences: Open User Settings (JSON) -> Add `"editor.formatOnSave": true,` to settings.json
+- Preferences: click `Open User (JSON)` icon top right corner -> Add `"editor.formatOnSave": true,` to settings.json
 - add `Auto Rename Tag`
 
 ### Configuration file recommended
