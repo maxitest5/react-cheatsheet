@@ -39,7 +39,13 @@ export function App() {
 
 - add `Prettier - Code formatter`
 - Format document With.. (Crtl + Maj + P) -> Configure default formater 
-- Preferences: click `Open User (JSON)` icon top right corner -> Add `"editor.formatOnSave": true,` to settings.json
+- Preferences: click `Open User (JSON)` icon top right corner -> Add to settings.json:
+```
+"editor.formatOnSave": true,
+"[javascriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+```
 - add `Auto Rename Tag`
 
 ### Configuration file recommended
