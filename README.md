@@ -343,7 +343,7 @@ root.render(
   </Provider>
 );
 ```
-### Slice (group of data)
+### Slice (group of data in the store)
 
 Setup Slice
 ```
