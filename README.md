@@ -228,6 +228,25 @@ export function MenuList({ difficulty, onItemClick }) {
   );
 }
 ```
+
+### Filter
+```
+const users = [
+  { name: "Codiku", age: 30 },
+  { name: "Julia", age: 22 },
+  { name: "Lara", age: 17 },
+  { name: "Max", age: 12 },
+  { name: "Paul", age: 43 },
+  { name: "Ana", age: 68 }
+];
+
+const filteredUsers = users.filter(isUserMajor);
+
+function isUserMajor(user) {
+  return user.age >= 18;
+}
+```
+
 ### Call APIs
 
 `fetch` function can be used for quering APIs
