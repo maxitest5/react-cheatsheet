@@ -94,7 +94,7 @@ import { Greetings } from "./Greetings";
 ```
 <br />
 
-### States
+### useState
 
 When variables inside a component changes the component is not rerendered -> Use states to change a value in a component
 When a state changes the component is rerendered
@@ -281,7 +281,7 @@ TVShowAPI.fetchPopulars();
 Can be used only:
 - At the end of the first rendering of the component
 - When specific variable changes, these variables are defined in an array.
-- When the component is destroyed via the `return`
+- When the component is destroyed `return` function is called
 
 ```
 import { useEffect } from "react"
