@@ -281,7 +281,7 @@ TVShowAPI.fetchPopulars();
 Can be used only:
 - At the end of the first rendering of the component
 - When specific variable changes, these variables are defined in an array.
-- When the component is destroyed `return` function is called
+- When the component is destroyed `return` function is called. Useful for using clearInterval if setInterval was called
 
 ```
 import { useEffect } from "react"
