@@ -487,3 +487,8 @@ export function ButtonPrimary({ children, onClick }) {
   )
 }
 ```
+
+### useRef (hook)
+
+Allow easy selection of an HMLT componant without rerendering the componant. Useful for conditionnal focus on inputs.
+
