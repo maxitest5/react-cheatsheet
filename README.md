@@ -490,5 +490,15 @@ export function ButtonPrimary({ children, onClick }) {
 
 ### useRef (hook)
 
-Allow easy selection of an HMLT componant without rerendering the componant. Useful for conditionnal focus on inputs.
+Allows easy selection of an HMLT componant without rerendering the componant. Useful for conditionnal focus on inputs.
+
+
+### useMemo
+
+Works as cache for a the <ins>result of a function</ins>. Is not recomputed if component is rerendered. Is update on when given variables are updated
+
+### memo
+
+Works as cache for a <ins>component</ins>. Is updated only if its `props` are changed.
+If a function is passed as `prop`, use `useCallback` (works like `useMemo`) to <ins>store the function</ins> in the parent component so the `prop` will not be considered as changed. 
 
